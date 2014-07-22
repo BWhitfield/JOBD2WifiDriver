@@ -2,6 +2,8 @@ package logic;
 
 import java.io.IOException;
 
+import main.Commands;
+
 import org.junit.*;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -41,11 +43,11 @@ public class CommandFactoryTests {
 		String cleanEcuHex = "010C";
 		String expected = "1234";
 
-		when(_commander.obd2("01", "0C")).thenReturn(ecuHex);
+		when(_commander.obd2("01", Commands.RPM)).thenReturn(ecuHex);
 		when(_responseCleaner.clean(ecuHex)).thenReturn(cleanEcuHex);
 		when(_ecuMath.rpm(cleanEcuHex)).thenReturn(expected);
 		
-		String actual = _testObject.obd2Value("01","0C");
+		String actual = _testObject.obd2Value("01",Commands.RPM);
 		
 		verify(_responseCleaner).clean(ecuHex);
 		assertEquals(expected, actual);
@@ -57,11 +59,27 @@ public class CommandFactoryTests {
 		String cleanEcuHex = "010C";
 		String expected = "1234";
 		
-		when(_commander.obd2("01", "04")).thenReturn(ecuHex);
+		when(_commander.obd2("01", Commands.LOAD)).thenReturn(ecuHex);
 		when(_responseCleaner.clean(ecuHex)).thenReturn(cleanEcuHex);
 		when(_ecuMath.load(cleanEcuHex)).thenReturn(expected);
 		
-		String actual = _testObject.obd2Value("01","04");
+		String actual = _testObject.obd2Value("01",Commands.LOAD);
+		
+		verify(_responseCleaner).clean(ecuHex);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void obd2Value_maf() throws Exception{
+		String ecuHex = "0x0ff03";
+		String cleanEcuHex = "010C";
+		String expected = "1234";
+		
+		when(_commander.obd2("01", Commands.MAF)).thenReturn(ecuHex);
+		when(_responseCleaner.clean(ecuHex)).thenReturn(cleanEcuHex);
+		when(_ecuMath.maf(cleanEcuHex)).thenReturn(expected);
+		
+		String actual = _testObject.obd2Value("01",Commands.MAF);
 		
 		verify(_responseCleaner).clean(ecuHex);
 		assertEquals(expected, actual);

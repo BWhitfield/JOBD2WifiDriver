@@ -15,6 +15,10 @@ public class CommandFactory implements ICommandFactory {
 		_commander = commander;
 		_responseCleaner = responseCleaner;
 	}
+	
+	public CommandFactory(ICommander commander){
+		this(new EcuMath(),commander,new ResponseCleaner());
+	}
 
 	public String obd2Value(String mode, String command) throws IOException {
 		String cleanEcuHex = _responseCleaner.clean(_commander.obd2(mode, command));

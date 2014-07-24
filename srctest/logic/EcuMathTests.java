@@ -34,4 +34,46 @@ public class EcuMathTests {
 		
 		assertEquals("",actual);
 	}
+
+	@Test
+	public void load(){
+		String actual = _testObject.load("0A");
+		
+		assertEquals("3.92",actual);
+	}
+	
+	@Test
+	public void load_null(){
+		String actual = _testObject.load(null);
+		
+		assertEquals("",actual);
+	}
+	
+	@Test
+	public void load_empty(){
+		String actual = _testObject.load("");
+		
+		assertEquals("",actual);
+	}
+	
+	@Test
+	public void maf(){
+		String actual = _testObject.maf("0A0C");
+		
+		assertEquals("25.72",actual);
+	}
+	
+	@Test
+	public void maf_null(){
+		String actual = _testObject.maf(null);
+		
+		assertEquals("",actual);
+	}
+	
+	@Test
+	public void maf_empty(){
+		String actual = _testObject.maf("");
+		
+		assertEquals("",actual);
+	}
 }

@@ -115,4 +115,26 @@ public class CommandFactoryTests {
 		
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void obd2Value_timing_advance() throws Exception{
+		String expected = "1234";
+		
+		when(_ecuMath.timingAdvance(CLEAN_ECU_HEX)).thenReturn(expected);
+		
+		String actual = _testObject.obd2Value("01",Commands.TIMING_ADVANCE);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void obd2Value_air_intake_temp() throws Exception{
+		String expected = "1234";
+		
+		when(_ecuMath.airIntakeTemp(CLEAN_ECU_HEX)).thenReturn(expected);
+		
+		String actual = _testObject.obd2Value("01",Commands.INTAKE_AIR_TEMP);
+		
+		assertEquals(expected, actual);
+	}
 }

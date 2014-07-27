@@ -22,6 +22,20 @@ public class EcuMathTests {
 	}
 
 	@Test
+	public void timingAdvance(){
+		String actual = _testObject.timingAdvance("010C");
+		
+		assertEquals("70.0",actual);
+	}
+
+	@Test
+	public void fuelPressure(){
+		String actual = _testObject.fuelPressure("010C");
+		
+		assertEquals("804.0",actual);
+	}
+
+	@Test
 	public void load(){
 		String actual = _testObject.load("0A");
 		

@@ -22,6 +22,13 @@ public class EcuMathTests {
 	}
 
 	@Test
+	public void airIntakeTemp(){
+		String actual = _testObject.airIntakeTemp("010C");
+		
+		assertEquals("514.4",actual); // C * 1.8 + 32
+	}
+
+	@Test
 	public void timingAdvance(){
 		String actual = _testObject.timingAdvance("010C");
 		

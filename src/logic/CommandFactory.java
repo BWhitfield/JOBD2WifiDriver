@@ -30,6 +30,8 @@ public class CommandFactory implements ICommandFactory {
 				return _ecuMath.load(cleanEcuHex);
 			else if(command == Commands.MAF)
 				return _ecuMath.maf(cleanEcuHex);
+			else if(command == Commands.FUEL_PRESSURE)
+				return _ecuMath.fuelPressure(cleanEcuHex);
 		}
 		return null;
 	}

@@ -27,6 +27,11 @@ public class EcuMath implements IEcuMath {
 		return round(computedValue);
 	}
 
+	public String airIntakeTemp(String cleanEcuHex) {
+		double computedValue = (hexToDecimal(cleanEcuHex) * 1.8) + 32;
+		return round(computedValue);
+	}
+
 	private int hexToDecimal(String cleanEcuHex) {
 		return Integer.parseInt(cleanEcuHex, 16);
 	}
@@ -35,6 +40,7 @@ public class EcuMath implements IEcuMath {
 		double roundedVal = (double) Math.round(computedValue * 100) / 100;
 		return String.valueOf(roundedVal);
 	}
+
 
 
 }

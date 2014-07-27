@@ -7,5 +7,6 @@ public interface IEcuMath {
 	String maf(String cleanEcuHex);
 	String fuelPressure(String cleanEcuHex);
 	String timingAdvance(String cleanEcuHex);
+	String airIntakeTemp(String cleanEcuHex);
 
 }

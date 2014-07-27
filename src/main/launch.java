@@ -29,6 +29,7 @@ public class launch {
 				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
 				logger.info("LOAD: " + cf.obd2Value("01", Commands.LOAD));
 				logger.info("MAF: " + cf.obd2Value("01", Commands.MAF));
+				Runtime.getRuntime().exec("clear");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

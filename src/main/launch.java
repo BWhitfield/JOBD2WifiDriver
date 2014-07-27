@@ -5,6 +5,9 @@ import java.util.Date;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
+import logic.CommandFactory;
+import logic.ICommandFactory;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -14,24 +17,24 @@ import util.ICommander;
 public class launch {
 
 	public static void main(String[] args) {
-		ICommander commander = new Commander();
-//		Logger logger = LogManager.getLogger("Driver"); //create an application wide driver
-//		
-//		IDefaultInformation di = new DefaultInformation(commander, logger);
-//		di.print();
-		
-		
-		try {
-			System.out.println("turn off echo: " + commander.at("E0"));// turn off the echo
-			System.out.println("Interface version" + commander.at("I"));
-			while (true) {
-				getRpms(commander);
-				getLoad(commander);
-				getMAF(commander);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Logger logger = LogManager.getLogger(); //create an application wide driver
+//		ICommander commander = new Commander();
+//		ICommandFactory cf = new CommandFactory(commander);
+		logger.error("printing things");
+//		try {
+//			IDefaultInformation di = new DefaultInformation(commander, logger);
+//			di.print();
+//			while (true) {
+//				cf.obd2Value("01", Commands.RPM);
+//				cf.obd2Value("01", Commands.LOAD);
+//				cf.obd2Value("01", Commands.MAF);
+////				getRpms(commander);
+////				getLoad(commander);
+////				getMAF(commander);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	private static void getRpms(ICommander commander) throws IOException {

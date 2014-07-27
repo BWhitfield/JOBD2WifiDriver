@@ -22,20 +22,6 @@ public class EcuMathTests {
 	}
 
 	@Test
-	public void rpm_null(){
-		String actual = _testObject.rpm(null);
-		
-		assertEquals("",actual);
-	}
-
-	@Test
-	public void rpm_empty(){
-		String actual = _testObject.rpm("");
-		
-		assertEquals("",actual);
-	}
-
-	@Test
 	public void load(){
 		String actual = _testObject.load("0A");
 		
@@ -43,37 +29,9 @@ public class EcuMathTests {
 	}
 	
 	@Test
-	public void load_null(){
-		String actual = _testObject.load(null);
-		
-		assertEquals("",actual);
-	}
-	
-	@Test
-	public void load_empty(){
-		String actual = _testObject.load("");
-		
-		assertEquals("",actual);
-	}
-	
-	@Test
 	public void maf(){
 		String actual = _testObject.maf("0A0C");
 		
 		assertEquals("25.72",actual);
-	}
-	
-	@Test
-	public void maf_null(){
-		String actual = _testObject.maf(null);
-		
-		assertEquals("",actual);
-	}
-	
-	@Test
-	public void maf_empty(){
-		String actual = _testObject.maf("");
-		
-		assertEquals("",actual);
 	}
 }

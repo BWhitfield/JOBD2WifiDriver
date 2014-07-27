@@ -22,14 +22,15 @@ public class CommandFactory implements ICommandFactory {
 
 	public String obd2Value(String mode, String command) throws IOException {
 		String cleanEcuHex = _responseCleaner.clean(_commander.obd2(mode, command));
-
-		if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints
-			return _ecuMath.rpm(cleanEcuHex);
-		else if(command == Commands.LOAD)
-			return _ecuMath.load(cleanEcuHex);
-		else if(command == Commands.MAF)
-			return _ecuMath.maf(cleanEcuHex);
 		
+		if(cleanEcuHex != null && !cleanEcuHex.isEmpty()){
+			if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints
+				return _ecuMath.rpm(cleanEcuHex);
+			else if(command == Commands.LOAD)
+				return _ecuMath.load(cleanEcuHex);
+			else if(command == Commands.MAF)
+				return _ecuMath.maf(cleanEcuHex);
+		}
 		return null;
 	}
 }

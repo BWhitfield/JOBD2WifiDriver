@@ -38,4 +38,16 @@ public class ResponseCleanerTests {
 		String actual = _testObject.clean("41 0C SEARCH 41 0C");
 		assertEquals("410C",actual);
 	}
+	
+	@Test
+	public void clean_null(){
+		String actual = _testObject.clean(null);
+		assertEquals("",actual);
+	}
+	
+	@Test
+	public void clean_empty_string(){
+		String actual = _testObject.clean("");
+		assertEquals("",actual);
+	}
 }

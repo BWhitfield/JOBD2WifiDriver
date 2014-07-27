@@ -38,6 +38,36 @@ public class CommandFactoryTests {
 	}
 	
 	@Test
+	public void obd2Value_null() throws Exception{
+		String ecuHex = "0x0ff03";
+		String cleanEcuHex = null;
+		String expected = null;
+
+		when(_commander.obd2("01", Commands.RPM)).thenReturn(ecuHex);
+		when(_responseCleaner.clean(ecuHex)).thenReturn(cleanEcuHex);
+		
+		String actual = _testObject.obd2Value("01",Commands.RPM);
+		
+		verify(_ecuMath, times(0)).rpm(cleanEcuHex);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void obd2Value_empty_string() throws Exception{
+		String ecuHex = "0x0ff03";
+		String cleanEcuHex = "";
+		String expected = null;
+		
+		when(_commander.obd2("01", Commands.RPM)).thenReturn(ecuHex);
+		when(_responseCleaner.clean(ecuHex)).thenReturn(cleanEcuHex);
+		
+		String actual = _testObject.obd2Value("01",Commands.RPM);
+		
+		verify(_ecuMath, times(0)).rpm(cleanEcuHex);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void obd2Value_RPM() throws Exception{
 		String ecuHex = "0x0ff03";
 		String cleanEcuHex = "010C";

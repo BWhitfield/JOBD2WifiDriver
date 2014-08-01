@@ -29,7 +29,7 @@ public class ConversionTests {
 
 	@Test
 	public void hexToDecimal_test(){
-		int actual = _testObject.hexToDecimal("0A0C");
+		int actual = _testObject.hexToDecimal("0A");
 		
 		assertEquals(10, actual);
 	}

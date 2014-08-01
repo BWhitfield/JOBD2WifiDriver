@@ -40,4 +40,11 @@ public class ConversionTests {
 		
 		assertEquals(null, actual);
 	}
+
+	@Test
+	public void hexToDecimal_return_null_on_empty_string(){
+		Integer actual = _testObject.hexToDecimal("");
+		
+		assertEquals(null, actual);
+	}
 }

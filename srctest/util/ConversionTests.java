@@ -26,4 +26,11 @@ public class ConversionTests {
 		
 		assertEquals(10, actual);
 	}
+
+	@Test
+	public void hexToDecimal_test(){
+		int actual = _testObject.hexToDecimal("0A0C");
+		
+		assertEquals(10, actual);
+	}
 }

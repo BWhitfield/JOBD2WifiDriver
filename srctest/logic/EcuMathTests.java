@@ -37,21 +37,21 @@ public class EcuMathTests {
 
 	@Test
 	public void fuelPressure(){
-		String actual = _testObject.fuelPressure("010C");
+		String actual = _testObject.fuelPressure(268);
 		
 		assertEquals("804.0",actual);
 	}
 
 	@Test
 	public void load(){
-		String actual = _testObject.load("0A");
+		String actual = _testObject.load(10);
 		
 		assertEquals("3.92",actual);
 	}
 	
 	@Test
 	public void maf(){
-		String actual = _testObject.maf("0A0C");
+		String actual = _testObject.maf(2572);
 		
 		assertEquals("25.72",actual);
 	}

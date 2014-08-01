@@ -19,6 +19,21 @@ public class EcuMath implements IEcuMath {
 		return round(computedValue);
 	}
 
+	public String fuelPressure(int rawVal) {
+		double computedValue = rawVal * 3;
+		return round(computedValue);
+	}
+
+	public String load(int rawVal) {
+		double computedValue = (rawVal * 100) / 255.0;
+		return round(computedValue);
+	}
+	
+	public String maf(int rawVal) {
+		double computedValue = rawVal / 100.0;
+		return round(computedValue);
+	}
+
 	public String rpm(String cleanEcuHex) {
 		return null;
 	}
@@ -31,20 +46,20 @@ public class EcuMath implements IEcuMath {
 		return null;
 	}
 
+
+	public String fuelPressure(String cleanEcuHex) {
+		return null;
+	}
+
+
 	public String load(String cleanEcuHex) {
-		double computedValue = (hexToDecimal(cleanEcuHex) * 100) / 255.0;
-		return round(computedValue);
+		return null;
 	}
 
 	public String maf(String cleanEcuHex) {
-		double computedValue = hexToDecimal(cleanEcuHex) / 100.0;
-		return round(computedValue);
+		return null;
 	}
 
-	public String fuelPressure(String cleanEcuHex) {
-		double computedValue = hexToDecimal(cleanEcuHex) * 3;
-		return round(computedValue);
-	}
 
 
 

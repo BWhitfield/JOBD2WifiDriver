@@ -1,5 +1,7 @@
 package logic;
 
+import main.Maps;
+
 public class EcuMath implements IEcuMath {
 
 	public String rpm(String cleanEcuHex) {
@@ -30,6 +32,18 @@ public class EcuMath implements IEcuMath {
 	public String airIntakeTemp(String cleanEcuHex) {
 		double computedValue = (hexToDecimal(cleanEcuHex) * 1.8) + 32;
 		return round(computedValue);
+	}
+
+	public String pids1_20(String cleanEcuHex) {
+		//get the first 8 - BE3FB813
+		String hex = "BE3FB813";
+		for (char c : hex.toCharArray()) {
+//			Maps.HexBinaryMap[c];
+		}
+		//loop through them
+		//convert to an array of bools
+		//return list of pids that have bool yes
+		return String.valueOf(hexToDecimal(cleanEcuHex));
 	}
 
 	private int hexToDecimal(String cleanEcuHex) {

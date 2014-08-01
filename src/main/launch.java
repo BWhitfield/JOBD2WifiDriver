@@ -26,11 +26,19 @@ public class launch {
 			IDefaultInformation di = new DefaultInformation(commander, logger);
 			di.print();
 			while (true) {
-				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
+//				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
+//				logger.info("pids: " + cf.obd2Value("01", Commands.PIDS_1_20));
+//				logger.info("errors: " + cf.obd2Value("03", ""));
 				logger.info("LOAD: " + cf.obd2Value("01", Commands.LOAD));
-				logger.info("MAF: " + cf.obd2Value("01", Commands.MAF));
-				Runtime.getRuntime().exec("clear");
+//				logger.info("MAF: " + cf.obd2Value("01", Commands.MAF));
+//				logger.info("FUEL: " + cf.obd2Value("01", Commands.FUEL_PRESSURE));
+//				logger.info("TIME: " + cf.obd2Value("01", Commands.TIMING_ADVANCE));
+//				logger.info("INTAKE_AIR: " + cf.obd2Value("01", Commands.INTAKE_AIR_TEMP));
 			}
+				//BE3FB813 410080000001 this is bit encoded
+				//
+				//
+				//errors: 4300
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getStackTrace());

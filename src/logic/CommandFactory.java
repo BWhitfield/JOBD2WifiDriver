@@ -21,7 +21,14 @@ public class CommandFactory implements ICommandFactory {
 	}
 
 	public String obd2Value(String mode, String command) throws IOException {
-		String cleanEcuHex = _responseCleaner.clean(_commander.obd2(mode, command));
+		String rawVal = _commander.obd2(mode, command);
+		String cleanEcuHex = _responseCleaner.clean(rawVal);
+		
+		if (mode == "03") { //test this
+			return rawVal;
+		}
+		
+		//hexToDecimal needs to go here. If there is an exception parsing, then set to null and step over the if/else blocks
 		
 		if(cleanEcuHex != null && !cleanEcuHex.isEmpty()){
 			if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints
@@ -36,6 +43,8 @@ public class CommandFactory implements ICommandFactory {
 				return _ecuMath.timingAdvance(cleanEcuHex);
 			else if(command == Commands.INTAKE_AIR_TEMP)
 				return _ecuMath.airIntakeTemp(cleanEcuHex);
+			else if(command == Commands.PIDS_1_20)
+				return rawVal;// _ecuMath.pids1_20(cleanEcuHex);
 		}
 		return null;
 	}

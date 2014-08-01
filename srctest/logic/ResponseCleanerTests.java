@@ -50,4 +50,12 @@ public class ResponseCleanerTests {
 		String actual = _testObject.clean("");
 		assertEquals("",actual);
 	}
+	
+	@Test
+	public void foo(){
+		String PIDS = "BE3FB813";
+		
+		byte[] bytes = PIDS.getBytes();
+		assertEquals(bytes, "");
+	}
 }

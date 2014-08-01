@@ -6,7 +6,7 @@ public class Conversion implements IConversion {
 		try {
 			return Integer.parseInt(hex, 16);
 		} catch (NumberFormatException e) {
-			return null;
+			return null; //Not sure if I want to log here...
 		} 
 	}
 }

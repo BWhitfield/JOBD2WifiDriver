@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import main.Commands;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ResponseCleanerTests {
@@ -51,7 +52,7 @@ public class ResponseCleanerTests {
 		assertEquals("",actual);
 	}
 	
-	@Test
+	@Ignore
 	public void foo(){
 		String PIDS = "BE3FB813";
 		

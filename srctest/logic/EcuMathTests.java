@@ -16,21 +16,21 @@ public class EcuMathTests {
 	
 	@Test
 	public void rpm(){
-		String actual = _testObject.rpm("0101");
+		String actual = _testObject.rpm(257);
 		
 		assertEquals("64.25",actual);
 	}
 
 	@Test
 	public void airIntakeTemp(){
-		String actual = _testObject.airIntakeTemp("010C");
+		String actual = _testObject.airIntakeTemp(268);
 		
 		assertEquals("514.4",actual); // C * 1.8 + 32
 	}
 
 	@Test
 	public void timingAdvance(){
-		String actual = _testObject.timingAdvance("010C");
+		String actual = _testObject.timingAdvance(268);
 		
 		assertEquals("70.0",actual);
 	}

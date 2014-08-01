@@ -2,7 +2,11 @@ package logic;
 
 public interface IEcuMath {
 
-	String rpm(String ecuHex);
+	String rpm(int rawVal);
+	String airIntakeTemp(int rawVal);
+	String timingAdvance(int rawVal);
+
+	String rpm(String cleanEcuHex);
 	String load(String cleanEcuHex);
 	String maf(String cleanEcuHex);
 	String fuelPressure(String cleanEcuHex);

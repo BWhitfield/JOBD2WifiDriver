@@ -4,9 +4,31 @@ import main.Maps;
 
 public class EcuMath implements IEcuMath {
 
-	public String rpm(String cleanEcuHex) {
-		double computedValue = hexToDecimal(cleanEcuHex) / 4.0;
+	public String rpm(int rawVal) {
+		double computedValue = rawVal / 4.0;
 		return round(computedValue);
+	}
+
+	public String airIntakeTemp(int rawVal) {
+		double computedValue = (rawVal * 1.8) + 32;
+		return round(computedValue);
+	}
+	
+	public String timingAdvance(int rawVal) {
+		double computedValue = (rawVal - 128) / 2;
+		return round(computedValue);
+	}
+
+	public String rpm(String cleanEcuHex) {
+		return null;
+	}
+
+	public String airIntakeTemp(String cleanEcuHex) {
+		return null;
+	}
+
+	public String timingAdvance(String cleanEcuHex) {
+		return null;
 	}
 
 	public String load(String cleanEcuHex) {
@@ -24,15 +46,7 @@ public class EcuMath implements IEcuMath {
 		return round(computedValue);
 	}
 
-	public String timingAdvance(String cleanEcuHex) {
-		double computedValue = (hexToDecimal(cleanEcuHex) - 128) / 2;
-		return round(computedValue);
-	}
 
-	public String airIntakeTemp(String cleanEcuHex) {
-		double computedValue = (hexToDecimal(cleanEcuHex) * 1.8) + 32;
-		return round(computedValue);
-	}
 
 	public String pids1_20(String cleanEcuHex) {
 		//get the first 8 - BE3FB813
@@ -54,6 +68,7 @@ public class EcuMath implements IEcuMath {
 		double roundedVal = (double) Math.round(computedValue * 100) / 100;
 		return String.valueOf(roundedVal);
 	}
+
 
 
 

@@ -27,7 +27,6 @@ public class CommandFactory implements ICommandFactory {
 	public String obd2Value(String mode, String command) throws IOException {
 		String rawVal = _commander.obd2(mode, command);
 		String cleanEcuHex = _responseCleaner.clean(rawVal);
-		
 		int rawIntVal = _conversion.hexToDecimal(cleanEcuHex);
 		
 //		if (mode == "03") { //test this

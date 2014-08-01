@@ -2,6 +2,6 @@ package util;
 
 public interface IConversion {
 
-	int hexToDecimal(String hex);
+	Integer hexToDecimal(String hex);
 
 }

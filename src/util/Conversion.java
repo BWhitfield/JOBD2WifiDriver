@@ -2,7 +2,11 @@ package util;
 
 public class Conversion implements IConversion {
 
-	public int hexToDecimal(String hex) {
-		return Integer.parseInt(hex, 16);
+	public Integer hexToDecimal(String hex) {
+		try {
+			return Integer.parseInt(hex, 16);
+		} catch (NumberFormatException e) {
+			return null;
+		} 
 	}
 }

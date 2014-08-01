@@ -33,4 +33,11 @@ public class ConversionTests {
 		
 		assertEquals(10, actual);
 	}
+
+	@Test
+	public void hexToDecimal_return_null_on_error(){
+		Integer actual = _testObject.hexToDecimal("NOT HEX CODE");
+		
+		assertEquals(null, actual);
+	}
 }

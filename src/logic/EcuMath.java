@@ -60,9 +60,6 @@ public class EcuMath implements IEcuMath {
 		return null;
 	}
 
-
-
-
 	public String pids1_20(String cleanEcuHex) {
 		//get the first 8 - BE3FB813
 		String hex = "BE3FB813";

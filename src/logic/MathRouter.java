@@ -16,7 +16,7 @@ public class MathRouter implements IMathRouter {
 
 	public String route(String command, Integer rawIntVal) {
 		if(rawIntVal != null){
-			if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints
+			if(command == Commands.RPM) 
 				return _ecuMath.rpm(rawIntVal);
 			else if(command == Commands.LOAD)
 				return _ecuMath.load(rawIntVal);

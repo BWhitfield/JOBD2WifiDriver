@@ -1,7 +1,5 @@
 package logic;
 
-import main.Maps;
-
 public class EcuMath implements IEcuMath {
 
 	public String rpm(int rawVal) {

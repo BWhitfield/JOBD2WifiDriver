@@ -30,9 +30,5 @@ public class CommandFactory implements ICommandFactory {
 		Integer rawIntVal = _conversion.hexToDecimal(cleanEcuHex);
 		
 		return _router.route(command, rawIntVal);
-//		if (mode == "03") { //test this
-//			return rawVal;
-//		}
-		
 	}
 }

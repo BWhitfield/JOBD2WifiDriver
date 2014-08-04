@@ -39,13 +39,6 @@ public class launch {
 				//
 				//
 				//errors: 4300
-			/*
-			    String HexToBinary(String Hex) {
-    				int i = Integer.parseInt(Hex, 16);
-    				String Bin = Integer.toBinaryString(i);
-    				return Bin;
-				}
-			 * */
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getStackTrace());

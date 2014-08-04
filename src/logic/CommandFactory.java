@@ -33,6 +33,10 @@ public class CommandFactory implements ICommandFactory {
 //			return rawVal;
 //		}
 		
+		return getSensorValue(command, rawIntVal);
+	}
+
+	private String getSensorValue(String command, Integer rawIntVal) {
 		if(rawIntVal != null){
 			if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints
 				return _ecuMath.rpm(rawIntVal);
@@ -46,8 +50,6 @@ public class CommandFactory implements ICommandFactory {
 				return _ecuMath.timingAdvance(rawIntVal);
 			else if(command == Commands.INTAKE_AIR_TEMP)
 				return _ecuMath.airIntakeTemp(rawIntVal);
-			else if(command == Commands.PIDS_1_20)
-				return rawVal;// _ecuMath.pids1_20(cleanEcuHex);
 		}
 		return null;
 	}

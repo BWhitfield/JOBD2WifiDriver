@@ -26,11 +26,11 @@ public class launch {
 			IDefaultInformation di = new DefaultInformation(commander, logger);
 			di.print();
 			while (true) {
-//				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
+				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
 //				logger.info("pids: " + cf.obd2Value("01", Commands.PIDS_1_20));
 //				logger.info("errors: " + cf.obd2Value("03", ""));
-				logger.info("LOAD: " + cf.obd2Value("01", Commands.LOAD));
-//				logger.info("MAF: " + cf.obd2Value("01", Commands.MAF));
+//				logger.info("LOAD: " + cf.obd2Value("01", Commands.LOAD));
+				logger.info("MAF: " + cf.obd2Value("01", Commands.MAF));
 //				logger.info("FUEL: " + cf.obd2Value("01", Commands.FUEL_PRESSURE));
 //				logger.info("TIME: " + cf.obd2Value("01", Commands.TIMING_ADVANCE));
 //				logger.info("INTAKE_AIR: " + cf.obd2Value("01", Commands.INTAKE_AIR_TEMP));
@@ -39,6 +39,13 @@ public class launch {
 				//
 				//
 				//errors: 4300
+			/*
+			    String HexToBinary(String Hex) {
+    				int i = Integer.parseInt(Hex, 16);
+    				String Bin = Integer.toBinaryString(i);
+    				return Bin;
+				}
+			 * */
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getStackTrace());

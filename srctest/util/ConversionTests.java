@@ -47,4 +47,39 @@ public class ConversionTests {
 		
 		assertEquals(null, actual);
 	}
+	
+	@Test
+	public void hexToBinary_three(){
+		String actual = _testObject.hexToBinary("3");
+		
+		assertEquals("0011", actual);
+	}
+	
+	@Test
+	public void hexToBinary_five(){
+		String actual = _testObject.hexToBinary("5");
+		
+		assertEquals("0101", actual);
+	}
+	
+	@Test
+	public void hexToBinary_complex(){
+		String actual = _testObject.hexToBinary("43");
+		
+		assertEquals("01000011", actual);
+	}
+	
+	@Test
+	public void hexToBinary_return_null_on_error(){
+		String actual = _testObject.hexToBinary("NOT HEX CODE");
+		
+		assertEquals(null, actual);
+	}
+
+	@Test
+	public void hexToBinary_return_null_on_empty_string(){
+		String actual = _testObject.hexToBinary("");
+		
+		assertEquals(null, actual);
+	}
 }

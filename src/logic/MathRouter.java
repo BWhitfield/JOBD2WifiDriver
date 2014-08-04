@@ -10,6 +10,10 @@ public class MathRouter implements IMathRouter {
 		_ecuMath = ecuMath;
 	}
 
+	public MathRouter() {
+		this(new EcuMath());
+	}
+
 	public String route(String command, Integer rawIntVal) {
 		if(rawIntVal != null){
 			if(command == Commands.RPM) //I don't like this, but apparently you can only switch on enums & ints

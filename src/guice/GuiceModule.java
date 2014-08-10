@@ -2,6 +2,7 @@ package guice;
 
 import org.apache.logging.log4j.Logger;
 
+import util.*;
 import util.Conversion;
 import util.IConversion;
 import logic.*;
@@ -19,8 +20,10 @@ public class GuiceModule extends AbstractModule {
 		bind(IMathRouter.class).to(MathRouter.class);
 		bind(IResponseCleaner.class).to(ResponseCleaner.class);
 
-		bind(IDefaultInformation.class).to(DefaultInformation.class);
+//		bind(IDefaultInformation.class).to(DefaultInformation.class);
 
 		bind(IConversion.class).to(Conversion.class);
+		
+		bind(ICommander.class).to(Commander.class);
 	}
 }

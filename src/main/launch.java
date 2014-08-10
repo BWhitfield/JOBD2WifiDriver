@@ -46,8 +46,7 @@ public class launch {
 				//
 				//errors: 4300
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getStackTrace());
+			logger.error("fail",e);
 		}
 	}
 }

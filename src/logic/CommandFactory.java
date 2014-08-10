@@ -1,6 +1,8 @@
 package logic;
 import java.io.IOException;
 
+import com.google.inject.Inject;
+
 import main.Commands;
 import util.Conversion;
 import util.ICommander;
@@ -13,6 +15,7 @@ public class CommandFactory implements ICommandFactory {
 	private IConversion _conversion;
 	private IMathRouter _router;
 
+	@Inject
 	public CommandFactory(ICommander commander, IResponseCleaner responseCleaner, IConversion conversion, IMathRouter router) {
 		_commander = commander;
 		_responseCleaner = responseCleaner;
@@ -20,10 +23,6 @@ public class CommandFactory implements ICommandFactory {
 		_router = router;
 	}
 	
-	public CommandFactory(ICommander commander){
-		this(commander,new ResponseCleaner(), new Conversion(), new MathRouter());
-	}
-
 	public String obd2Value(String mode, String command) throws IOException {
 		String rawVal = _commander.obd2(mode, command);
 		String cleanEcuHex = _responseCleaner.clean(rawVal);

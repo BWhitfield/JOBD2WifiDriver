@@ -1,17 +1,16 @@
 package logic;
 
+import com.google.inject.Inject;
+
 import main.Commands;
 
 public class MathRouter implements IMathRouter {
 
 	private IEcuMath _ecuMath;
 
+	@Inject
 	public MathRouter(IEcuMath ecuMath) {
 		_ecuMath = ecuMath;
-	}
-
-	public MathRouter() {
-		this(new EcuMath());
 	}
 
 	public String route(String command, Integer rawIntVal) {

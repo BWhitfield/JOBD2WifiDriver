@@ -28,9 +28,10 @@ public class launch {
 	    Injector injector = Guice.createInjector(new GuiceModule());
 
 	    ICommandFactory cf = injector.getInstance(CommandFactory.class);
-//	    IDefaultInformation di = injector.getInstance(DefaultInformation.class);
+	    IDefaultInformation di = injector.getInstance(DefaultInformation.class);
 		
 		try {
+			di.print();
 			while (true) {
 				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
 //				logger.info("pids: " + cf.obd2Value("01", Commands.PIDS_1_20));

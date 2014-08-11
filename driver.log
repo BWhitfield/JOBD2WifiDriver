@@ -1,7 +1,8 @@
-14-08-10 13:39:53.984 [main] INFO  main.launch - JOBD2WifiDriver - Begin
-14-08-10 13:41:09.784 [main] ERROR main.launch - fail
+14-08-10 20:34:57.043 [main] INFO  main.launch - JOBD2WifiDriver - Begin
+14-08-10 20:36:12.347 [main] ERROR guice.GuiceModule - Logger instantiated : -)
+14-08-10 20:36:12.348 [main] ERROR main.launch - fail
 java.lang.NullPointerException
 	at util.Commander.writeCommand(Commander.java:46) ~[bin/:?]
 	at util.Commander.obd2(Commander.java:26) ~[bin/:?]
 	at logic.CommandFactory.obd2Value(CommandFactory.java:27) ~[bin/:?]
-	at main.launch.main(launch.java:35) [bin/:?]
+	at main.launch.main(launch.java:36) [bin/:?]

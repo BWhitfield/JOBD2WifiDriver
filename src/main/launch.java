@@ -1,5 +1,7 @@
 package main;
 
+import guice.GuiceModule;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -11,6 +13,9 @@ import logic.ICommandFactory;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import util.Commander;
 import util.ICommander;
 
@@ -19,11 +24,13 @@ public class launch {
 	public static void main(String[] args) {
 		Logger logger = LogManager.getLogger(); //create ROOT logger
 		logger.info("JOBD2WifiDriver - Begin");
+
+	    Injector injector = Guice.createInjector(new GuiceModule());
+
+	    ICommandFactory cf = injector.getInstance(CommandFactory.class);
+	    IDefaultInformation di = injector.getInstance(DefaultInformation.class);
 		
-		ICommander commander = new Commander();
-		ICommandFactory cf = new CommandFactory(commander);
 		try {
-			IDefaultInformation di = new DefaultInformation(commander, logger);
 			di.print();
 			while (true) {
 				logger.info("RPM: " + cf.obd2Value("01", Commands.RPM));
@@ -40,8 +47,7 @@ public class launch {
 				//
 				//errors: 4300
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getStackTrace());
+			logger.error("fail",e);
 		}
 	}
 }

@@ -85,4 +85,10 @@ public class MathRouterTests {
 		String actual = _testObject.route(Commands.INTAKE_AIR_TEMP,null);
 		assertSame(null, actual);
 	}
+	
+	@Test
+	public void default_returns_raw(){
+		String actual = _testObject.route("notImplemented",999);
+		assertEquals("999", actual);
+	}
 }

@@ -27,6 +27,8 @@ public class MathRouter implements IMathRouter {
 				return _ecuMath.timingAdvance(rawIntVal);
 			else if(command == Commands.INTAKE_AIR_TEMP)
 				return _ecuMath.airIntakeTemp(rawIntVal);
+			else
+				return rawIntVal.toString();
 		}
 		return null;
 	}

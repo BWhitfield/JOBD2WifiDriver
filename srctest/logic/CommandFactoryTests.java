@@ -48,6 +48,16 @@ public class CommandFactoryTests {
 	}
 
 	@Test
+	public void obd2ValueRaw_returns_raw() throws Exception{
+		String ecuHex = "0x0ff03";
+		when(_commander.obd2("mode", "pid")).thenReturn(ecuHex);
+		
+		String actual = _testObject.obd2ValueRaw("mode","pid");
+		
+		assertEquals(ecuHex, actual);
+	}
+
+	@Test
 	public void obd2Value_converts_hex_to_decimal() throws Exception{
 		String ecuHex = "0x0ff03";
 		String cleanHex = "CLEAN_HEX";

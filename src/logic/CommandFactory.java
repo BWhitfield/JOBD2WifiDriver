@@ -28,4 +28,7 @@ public class CommandFactory implements ICommandFactory {
 		
 		return _router.route(command, rawIntVal);
 	}
+	public String obd2ValueRaw(String mode, String command) throws IOException {
+		return _commander.obd2(mode, command);
+	}
 }
